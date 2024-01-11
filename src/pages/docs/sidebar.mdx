@@ -1,0 +1,44 @@
+---
+title: 'Sidebar'
+layout: '../../layouts/ComponentLayout.astro'
+---
+
+import Sidebar from '../../components/Sidebar.tsx';
+
+## Sidebar
+
+Displays rich content in a portal, triggered by a button.
+
+<div class='component-preview '>
+  <Sidebar client:load />
+</div>
+
+```js
+import { useState } from 'react';
+import { Sidebar, Button, clsx } from '@iftakhar/ui';
+```
+
+```js
+const [collapsedSidebar, setCollapsedSidebar] = useState<boolean>(false);
+const [toggleSidebar, setToggleSidebar] = useState<boolean>(false);
+
+<Sidebar className='h-full min-h-96' breakPoint='md' collapsed={collapsedSidebar} toggled={toggleSidebar} onToggle={(toggle) => setToggleSidebar(toggle)}>
+    <Sidebar.Header className='flex justify-center py-2'>
+        <img src={'/favicon.svg'} alt='favicon' className='w-10' />
+    </Sidebar.Header>
+    <Sidebar.Content className='h-full'>
+        <Sidebar.Menu iconShape='circle'>
+          <Sidebar.MenuItem icon={<Blocks />}>Dashboard</Sidebar.MenuItem>
+        <Sidebar.SubMenu title={'Product Manage'} icon={<Store />}>
+            <Sidebar.MenuItem>Add Product</Sidebar.MenuItem>
+           <Sidebar.MenuItem>Product List</Sidebar.MenuItem>
+        </Sidebar.SubMenu>
+    </Sidebar.Menu>
+    </Sidebar.Content>
+    <Sidebar.Footer className=' flex justify-center py-2'>
+        <Button type='button' onClick={() => setCollapsedSidebar(!collapsedSidebar)} className={clsx('border-0 center-inner hover:text-primary h-10 w-10 text-xl duration-300 hover:text-2xl')}>
+          <ArrowDown className=' rotate-90' />
+        </Button>
+    </Sidebar.Footer>
+</Sidebar>
+```

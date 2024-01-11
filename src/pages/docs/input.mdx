@@ -1,0 +1,57 @@
+---
+title: 'Input'
+layout: '../../layouts/ComponentLayout.astro'
+---
+
+import Input from '../../components/Input.tsx';
+
+# Input
+
+Displays a form input field or a component that looks like an input field.
+
+<div class='component-preview '>
+  <Input type='input' client:load />
+</div>
+
+```js
+import { Input } from '@iftakhar/ui';
+```
+
+```js
+<Input type='email' id='email' placeholder='Email address' className='h-10 max-w-64 w-full rounded-md border px-3 py-2 text-sm focus:outline-none' name='email' />
+```
+
+# Textarea
+
+Displays a form textarea or a component that looks like a textarea.
+
+<div class='component-preview '>
+  <Input type='textArea' client:load />
+</div>
+
+```js
+import { TextArea } from '@iftakhar/ui';
+```
+
+```js
+<TextArea id='textarea' placeholder='Comment' className='h-20 resize-none w-full rounded-md border px-3 py-2 text-sm focus:outline-none' />
+```
+
+# Label
+
+Renders an accessible label associated with controls.
+
+<div class='component-preview '>
+  <Input type='label' client:load />
+</div>
+
+```js
+import { Label, Input } from '@iftakhar/ui';
+```
+
+```js
+<div className='flex flex-row items-center gap-2'>
+  <Label htmlFor='email'>Email</Label>
+  <Input type='email' id='email' placeholder='Email address' className='h-10 w-64 rounded-md border px-3 py-2 text-sm focus:outline-none' name='email' />
+</div>
+```

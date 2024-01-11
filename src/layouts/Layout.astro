@@ -1,0 +1,21 @@
+---
+import Header from '../components/Header/Header.astro';
+import HeadCommon from '../module/HeadCommon.astro';
+import "../styles/index.css"
+import "@iftakhar/ui/dist/main.cjs.css"
+const currentPage = new URL(Astro.request.url).pathname;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+        <HeadCommon />
+	</head>
+	<body class="bg-slate-100">
+		<div class="sticky top-0 z-10 w-full">
+			<Header currentPage={currentPage} />
+		</div>
+        <slot />
+	</body>
+</html>
+

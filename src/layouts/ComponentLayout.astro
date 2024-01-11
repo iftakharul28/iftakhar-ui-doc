@@ -1,0 +1,45 @@
+---
+import Header from '../components/Header/Header.astro';
+import LeftSidebar from '../components/LeftSidebar.astro';
+import HeadCommon from '../module/HeadCommon.astro';
+const { content = {} } = Astro.props;
+const currentPage = new URL(Astro.request.url).pathname;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<HeadCommon />
+	</head>
+	<body class="bg-slate-100">
+		<title>{content.title ? `${content.title}` : 'Document'}</title><!-- This is intentionally inlined to avoid FOUC -->
+        
+			<Header currentPage={currentPage} />
+		<div class="grid grid-cols-12 h-[calc(100vh_-_81px)]">
+			<aside title="Site Navigation" class="col-span-3 sticky top-0 border-r pt-12 flex justify-end">
+				<LeftSidebar currentPage={currentPage} />
+			</aside>
+			<main class="py-4 px-8 pb-32 col-span-6 overflow-auto">
+				<div>
+					<!-- <PageContent content={content}> -->
+						<slot />
+					<!-- </PageContent> -->
+				</div>
+			</main>
+			<div class="col-span-3 sticky top-0 flex">
+				<!-- <RightSidebar content={content} /> -->
+			</div>
+		</div>
+	</body>
+</html>
+
+<!-- This is intentionally inlined to avoid FOUC -->
+<script is:inline>
+	const root = document.documentElement;
+	const theme = localStorage.getItem('theme');
+	if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+		root.classList.add('dark');
+	} else {
+		root.classList.remove('dark');
+	}
+</script>

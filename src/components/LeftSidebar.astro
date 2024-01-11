@@ -1,0 +1,59 @@
+---
+
+export const SIDEBAR = [
+{ text: "Overview", header: true },
+  { text: "Introduction", link: "/docs" },
+  { text: "Components", header: true },
+  { text: "Accordion", link: "/docs/accordion" },
+  { text: "Modal", link: "/docs/modal" },
+  { text: "Table", link: "/docs/table" },
+  { text: "Sidebar", link: "/docs/sidebar"},
+  { text: "Card", link: "/docs/card"},
+  { text: "Buttons", link: "/docs/buttons" },
+  { text: "Input", link: "/docs/input" },
+  { text: "Patterns", header: true },
+  { text: "Introduction", link: "/patterns/introduction" },
+];
+const { currentPage } = Astro.props;
+const currentPageMatch = currentPage.slice(1);
+
+const isCurrentPage = (item: typeof SIDEBAR[number]
+) => {
+	// console.log('link',"=>",item.link,',current',"=>",currentPage,',currentMatch',"=>",currentPageMatch)
+	if (item.link) {
+		return item.link === currentPage;
+	}
+	return false;
+};
+
+const getLinkClasses = (link: typeof SIDEBAR[number]
+) => {
+	const baseClasses = "block py-2 px-6  my-1 transition-colors border-l hover:border-slate-400 text-slate-500 hover:text-slate-900"
+
+	if (isCurrentPage(link)) {
+		return baseClasses + " border-slate-500 text-slate-900";
+	} else {
+		return baseClasses;
+	}
+}
+---
+
+	<nav aria-labelledby="grid-left" class="w-64 p-4 h-full">
+		<ul>
+			{SIDEBAR.map(item => (item.header ? 
+				<h2 class="mt-4 font-semibold text-slate-700">{item.text}</h2> : 
+				<li class={getLinkClasses(item)}>
+					<a href={item.link}>{item.text}</a>
+				</li>))}
+		</ul>
+	</nav>
+
+<script is:inline>
+	window.addEventListener('DOMContentLoaded', (event) => {
+		var target = document.querySelector('[aria-current="page"]');
+		if (target && target.offsetTop > window.innerHeight - 100) {
+			document.querySelector('.nav-groups').scrollTop = target.offsetTop;
+		}
+	});
+</script>
+

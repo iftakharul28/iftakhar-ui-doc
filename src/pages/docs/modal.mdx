@@ -1,0 +1,47 @@
+---
+title: 'Modal'
+layout: '../../layouts/ComponentLayout.astro'
+---
+
+import Modal from '../../components/Modal.tsx';
+
+## Modal
+
+Displays rich content in a portal, triggered by a button.
+
+<div class='component-preview '>
+  <Modal client:load />
+</div>
+
+```js
+import { useState } from 'react';
+import { Modal } from '@iftakhar/ui';
+```
+
+```js
+const [isActive, setActive] = useState(false);
+<Modal
+  cancelButton={{
+    onClick: () => setActive(!isActive),
+  }}
+  maskClosable={true}
+  visible={isActive}>
+  <Modal.Content
+    className='!max-w-[400px]'
+    okButton={{
+      onClick: () => setActive(!isActive),
+      type: 'button',
+      className: ' ml-6',
+      children: 'OK',
+    }}
+    cancelButton={{
+      onClick: () => setActive(!isActive),
+      type: 'button',
+      className: '',
+      children: 'Cancel',
+    }}>
+    A more complex example which define a customized footer button bar. The dialog will change to loading state after clicking the submit button, and when the loading is done, the modal dialog will be
+    closed.
+  </Modal.Content>
+</Modal>;
+```

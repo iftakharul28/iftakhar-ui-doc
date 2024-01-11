@@ -1,0 +1,86 @@
+---
+title: 'Table'
+layout: '../../layouts/ComponentLayout.astro'
+---
+
+import Table from '../../components/Table.tsx';
+
+## Table
+
+A responsive table component.
+
+<div class='component-preview '>
+  <Table client:load />
+</div>
+```js
+import { Table } from '@iftakhar/ui';
+const data = [
+  {
+    invoice: 'INV001',
+    paymentStatus: 'Paid',
+    totalAmount: '$250.00',
+    paymentMethod: 'Credit Card',
+  },
+  {
+    invoice: 'INV002',
+    paymentStatus: 'Pending',
+    totalAmount: '$150.00',
+    paymentMethod: 'PayPal',
+  },
+  {
+    invoice: 'INV003',
+    paymentStatus: 'Unpaid',
+    totalAmount: '$350.00',
+    paymentMethod: 'Bank Transfer',
+  },
+  {
+    invoice: 'INV004',
+    paymentStatus: 'Unpaid',
+    totalAmount: '$450.00',
+    paymentMethod: 'Credit Card',
+  },
+];
+```
+```js
+<Table
+  loading={false}
+  dataSource={data}
+  className='w-full caption-bottom text-sm'
+  columns={[
+    {
+      title: 'Id',
+      render: (_, id) => id + 1,
+      className: 'h-12 px-4 text-center font-medium text-muted-foreground w-20',
+    },
+    {
+      title: <span className='font-semibold'>Invoice</span>,
+      render: (value) => value.invoice,
+      className: 'h-12 px-4 text-center font-medium text-muted-foreground',
+    },
+    {
+      title: <span className='font-semibold'>Status</span>,
+      render: (value) => value.paymentStatus,
+      className: 'h-12 px-4 text-center font-medium text-muted-foreground',
+    },
+    {
+      title: <span className='font-semibold'>Method</span>,
+      render: (value) => value.paymentMethod,
+      className: 'h-12 px-4 text-center font-medium text-muted-foreground',
+    },
+    {
+      title: <span className='font-semibold'>Amount</span>,
+      render: (value) => value.totalAmount,
+      className: 'h-12 px-4 text-center font-medium text-muted-foreground',
+    },
+    {
+      title: <span className='font-semibold'>Email</span>,
+      render: (value) => (
+        <Button className='text-red-400' type='link' href={`mailto:${value.email}`}>
+          {value.email}
+        </Button>
+      ),
+      className: 'h-12 px-4 text-center font-medium text-muted-foreground',
+    },
+  ]}
+/>
+```
