@@ -1,0 +1,30 @@
+---
+title: 'MediaQuery'
+layout: '../../layouts/ComponentLayout.astro'
+---
+
+import MediaQuery from '../../components/MediaQuery.tsx';
+
+## MediaQuery
+
+A vertically stacked set of interactive headings that each reveal a section of content.
+
+<div class='component-preview '>
+  <MediaQuery client:load />
+</div>
+
+```js
+import { MediaQuery } from '@iftakhar/ui';
+```
+
+```js
+<MediaQuery query='(min-width: 1024px)'>
+  <pre>min-width: 1024px</pre> {/* if screen width is bigger than 1024px then it will be shown */}
+</MediaQuery>
+```
+
+```js
+<MediaQuery query='(max-width: 1024px)'>
+  <pre>max-width: 1024px</pre> {/* if screen width is smaller than 1024px then it will be shown */}
+</MediaQuery>
+```

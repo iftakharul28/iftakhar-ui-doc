@@ -1,7 +1,7 @@
 import { Accordion } from '@iftakhar/ui';
 const MainAccordion = () => {
   return (
-    <Accordion defaultValue='item-1' className='max-w-[500px] w-full mx-auto p-10'>
+    <Accordion defaultValue='item-1' className='max-w-[500px] w-full mx-auto py-4 px-10 bg-white shadow-md'>
       <Accordion.Item className='cursor-pointer' value='item-1'>
         <Accordion.Trigger value='item-1' activeClass='border-b-0' className='border-b py-4 	font-semibold w-full flex items-center justify-between'>
           <h2>Is it accessible?</h2>

@@ -1,0 +1,36 @@
+---
+title: 'Pagination'
+layout: '../../layouts/ComponentLayout.astro'
+---
+
+import Pagination from '../../components/Pagination.tsx';
+
+## Pagination
+
+A vertically stacked set of interactive headings that each reveal a section of content.
+
+<div class='component-preview '>
+  <Pagination client:load />
+</div>
+
+```js
+import { Pagination } from '@iftakhar/ui';
+```
+
+```js
+
+  <Pagination 
+    next={{
+      icon: '>>',
+      className: 'rounded cursor-pointer',
+    }}
+    prev={{
+      icon: '<<',
+      className: 'rounded cursor-pointer',
+    }}
+    current={page}
+    pageSize={10}
+    total={100}
+    onChange={handlePageChange}
+  />
+```

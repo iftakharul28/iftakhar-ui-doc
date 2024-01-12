@@ -5,14 +5,19 @@ export const SIDEBAR = [
   { text: "Introduction", link: "/docs" },
   { text: "Components", header: true },
   { text: "Accordion", link: "/docs/accordion" },
+  { text: "Breadcrumb", link: "/docs/breadcrumb" },
   { text: "Modal", link: "/docs/modal" },
+  { text: "Tab", link: "/docs/tab" },
   { text: "Table", link: "/docs/table" },
+  { text: "List", link: "/docs/list" },
   { text: "Sidebar", link: "/docs/sidebar"},
   { text: "Card", link: "/docs/card"},
   { text: "Buttons", link: "/docs/buttons" },
   { text: "Input", link: "/docs/input" },
-  { text: "Patterns", header: true },
-  { text: "Introduction", link: "/patterns/introduction" },
+  { text: "Tools", header: true },
+  { text: "clsx", link: "/tools/clsx" },
+  { text: "Pagination", link: "/tools/pagination" },
+  { text: "MediaQuery", link: "/tools/media-query"}
 ];
 const { currentPage } = Astro.props;
 const currentPageMatch = currentPage.slice(1);
@@ -21,15 +26,14 @@ const isCurrentPage = (item: typeof SIDEBAR[number]
 ) => {
 	// console.log('link',"=>",item.link,',current',"=>",currentPage,',currentMatch',"=>",currentPageMatch)
 	if (item.link) {
-		return item.link === currentPage;
+		return (currentPage === item.link || (currentPage[item.link.length] === '/' && currentPage.split('/').length === item.link.split('/').length))  
+
 	}
 	return false;
 };
 
-const getLinkClasses = (link: typeof SIDEBAR[number]
-) => {
+const getLinkClasses = (link: typeof SIDEBAR[number]) => {
 	const baseClasses = "block py-2 px-6  my-1 transition-colors border-l hover:border-slate-400 text-slate-500 hover:text-slate-900"
-
 	if (isCurrentPage(link)) {
 		return baseClasses + " border-slate-500 text-slate-900";
 	} else {
@@ -44,7 +48,9 @@ const getLinkClasses = (link: typeof SIDEBAR[number]
 				<h2 class="mt-4 font-semibold text-slate-700">{item.text}</h2> : 
 				<li class={getLinkClasses(item)}>
 					<a href={item.link}>{item.text}</a>
-				</li>))}
+				</li>
+				))
+			}
 		</ul>
 	</nav>
 

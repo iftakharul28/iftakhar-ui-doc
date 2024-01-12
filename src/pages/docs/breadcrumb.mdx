@@ -1,0 +1,26 @@
+---
+title: 'Breadcrumb'
+layout: '../../layouts/ComponentLayout.astro'
+---
+
+import Breadcrumb from '../../components/Breadcrumb.tsx';
+
+## Breadcrumb
+
+A vertically stacked set of interactive headings that each reveal a section of content.
+
+<div class='component-preview '>
+  <Breadcrumb client:load />
+</div>
+
+```js
+import { Breadcrumb } from '@iftakhar/ui';
+```
+
+```js
+<Breadcrumb separator={'/'}>
+  <Breadcrumb.Item>home</Breadcrumb.Item>
+  <Breadcrumb.Item>product</Breadcrumb.Item>
+  <Breadcrumb.Item>iphone-14-pro</Breadcrumb.Item>
+</Breadcrumb>
+```

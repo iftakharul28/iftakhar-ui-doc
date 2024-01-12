@@ -13,7 +13,6 @@ const currentPage = new URL(Astro.request.url).pathname;
 	</head>
 	<body class="bg-slate-100">
 		<title>{content.title ? `${content.title}` : 'Document'}</title><!-- This is intentionally inlined to avoid FOUC -->
-        
 			<Header currentPage={currentPage} />
 		<div class="grid grid-cols-12 h-[calc(100vh_-_81px)]">
 			<aside title="Site Navigation" class="col-span-3 sticky top-0 border-r pt-12 flex justify-end">

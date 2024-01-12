@@ -1,0 +1,23 @@
+---
+title: 'clsx'
+layout: '../../layouts/ComponentLayout.astro'
+---
+
+```js
+import { clsx } from '@iftakhar/ui';
+```
+
+```js
+// Strings (variadic)
+<div className={clsx('foo', true && 'bar', 'baz')}>
+....
+</div>
+//=> 'foo bar baz'
+```
+```js
+// Objects
+<div className={clsx({ foo:true, bar:false, baz:isTrue() })}>
+....
+</div>
+//=> 'foo baz'
+```
