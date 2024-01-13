@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header/Header.astro';
 import HeadCommon from '../module/HeadCommon.astro';
+const { content = {} } = Astro.props;
 const currentPage = new URL(Astro.request.url).pathname;
 ---
 
@@ -8,6 +9,7 @@ const currentPage = new URL(Astro.request.url).pathname;
 <html lang="en">
 	<head>
         <HeadCommon />
+		<title>{content.title ? `${content.title}` : 'Document'}</title>
 	</head>
 	<body class="bg-slate-100">
 		<div class="sticky top-0 z-10 w-full">

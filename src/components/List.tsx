@@ -1,27 +1,24 @@
 
 import { List } from '@iftakhar/ui';
 export default function MainList() {
-const data = [
-  {
-    title: 'item 1',
-    content: 'content',
-  },
-  {
-    title: 'item 2',
-    content: 'content',
-  },
-];
+  const data = [
+    'item 1',
+    'item 2',
+    'item 3',
+    'item 4',
+    'item 5',
+    'item 6',
+ ];
   return (
     <div className='bg-white rounded shadow-md p-4 w-96'>
+      <ul className='list-decimal list-inside'>
         <List
-            data={data}
-            renderItem={(item) => (
-            <div>
-                <h1>{item.title}</h1>
-                <p>{item.content}</p>
-            </div>
-            )}
+          data={data}
+          renderItem={(item, i) => (
+              <li key={i}>{item}</li>
+          )}
         />
+      </ul>
     </div>
   )
 }

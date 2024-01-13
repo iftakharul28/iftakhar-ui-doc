@@ -13,28 +13,27 @@ A vertically stacked set of interactive headings that each reveal a section of c
   <List client:load />
 </div>
 
-```js
+```tsx
 import { List } from '@iftakhar/ui';
 const data = [
-  {
-    title: 'item 1',
-    content: 'content',
-  },
-  {
-    title: 'item 2',
-    content: 'content',
-  },
+    'item 1',
+    'item 2',
+    'item 3',
+    'item 4',
+    'item 5',
+    'item 6',
 ];
 ```
 
-```js
-<List
-  data={data}
-  renderItem={(item) => (
-    <div>
-      <h1>{item.title}</h1>
-      <p>{item.content}</p>
-    </div>
-  )}
-/>
+```tsx
+<div className='bg-white rounded shadow-md p-4 w-96'>
+  <ul className='list-decimal list-inside'>
+    <List
+      data={data}
+      renderItem={(item, i) => (
+          <li key={i}>{item}</li>
+      )}
+    />
+  </ul>
+</div>
 ```

@@ -1,7 +1,7 @@
 ---
 
 export const SIDEBAR = [
-{ text: "Overview", header: true },
+{ text: "Getting Started", header: true },
   { text: "Introduction", link: "/docs" },
   { text: "Components", header: true },
   { text: "Accordion", link: "/docs/accordion" },
@@ -16,6 +16,7 @@ export const SIDEBAR = [
   { text: "Input", link: "/docs/input" },
   { text: "Tools", header: true },
   { text: "clsx", link: "/tools/clsx" },
+  { text: "Condition", link: "/tools/condition" },
   { text: "Pagination", link: "/tools/pagination" },
   { text: "MediaQuery", link: "/tools/media-query"}
 ];
@@ -42,10 +43,10 @@ const getLinkClasses = (link: typeof SIDEBAR[number]) => {
 }
 ---
 
-	<nav aria-labelledby="grid-left" class="w-64 p-4 h-full">
+	<nav aria-labelledby="grid-left" class="w-64 px-4 pt-3 pb-6 h-full">
 		<ul>
 			{SIDEBAR.map(item => (item.header ? 
-				<h2 class="mt-4 font-semibold text-slate-700">{item.text}</h2> : 
+				<h2 class="font-semibold text-slate-700">{item.text}</h2> : 
 				<li class={getLinkClasses(item)}>
 					<a href={item.link}>{item.text}</a>
 				</li>

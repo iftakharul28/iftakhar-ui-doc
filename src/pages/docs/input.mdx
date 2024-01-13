@@ -13,11 +13,11 @@ Displays a form input field or a component that looks like an input field.
   <Input type='input' client:load />
 </div>
 
-```js
+```tsx
 import { Input } from '@iftakhar/ui';
 ```
 
-```js
+```tsx
 <Input type='email' id='email' placeholder='Email address' className='h-10 max-w-64 w-full rounded-md border px-3 py-2 text-sm focus:outline-none' name='email' />
 ```
 
@@ -29,11 +29,11 @@ Displays a form textarea or a component that looks like a textarea.
   <Input type='textArea' client:load />
 </div>
 
-```js
+```tsx
 import { TextArea } from '@iftakhar/ui';
 ```
 
-```js
+```tsx
 <TextArea id='textarea' placeholder='Comment' className='h-20 resize-none w-full rounded-md border px-3 py-2 text-sm focus:outline-none' />
 ```
 
@@ -45,11 +45,11 @@ Renders an accessible label associated with controls.
   <Input type='label' client:load />
 </div>
 
-```js
+```tsx
 import { Label, Input } from '@iftakhar/ui';
 ```
 
-```js
+```tsx
 <div className='flex flex-row items-center gap-2'>
   <Label htmlFor='email'>Email</Label>
   <Input type='email' id='email' placeholder='Email address' className='h-10 w-64 rounded-md border px-3 py-2 text-sm focus:outline-none' name='email' />

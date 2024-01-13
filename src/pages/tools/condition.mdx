@@ -1,0 +1,31 @@
+---
+title: 'Condition'
+layout: '../../layouts/ComponentLayout.astro'
+---
+
+import Condition from '../../components/Condition.tsx';
+
+## Condition
+
+Displays rich content in a portal, triggered by a button.
+
+<div class='component-preview '>
+  <Condition client:load />
+</div>
+
+```tsx
+import { Switch } from '@iftakhar/ui';
+```
+```tsx
+<Switch>
+  <Switch.Case condition={true}>
+    <span>If this condition is true, then it will show</span>
+  </Switch.Case>
+  <Switch.Case condition={false}>
+    <span>If this condition is false, then it will not show</span>
+  </Switch.Case>
+  <Switch.Default>
+    <span>If the other two conditions are false, then this will show</span>
+  </Switch.Default>
+</Switch>
+```

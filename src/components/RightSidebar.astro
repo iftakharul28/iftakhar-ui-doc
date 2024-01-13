@@ -1,0 +1,16 @@
+---
+const { content } = Astro.props;
+const headers = content.astro?.headers || [];
+---
+
+<nav aria-labelledby="grid-right">
+    <ul class="flex flex-col gap-4 mt-24">
+        { headers.map(({ slug, text }:{ slug:any, text:any }) => {
+            return (
+            <li class="text-slate-400 hover:text-slate-900">
+                #<a href={`#${slug}`}>{text}</a>
+            </li>
+            ) 
+        }) }
+    </ul>
+</nav>
