@@ -15,6 +15,7 @@ yarn add @iftakhar/ui
 - Accordion
 - Button
 - Breadcrumb
+- Card
 - Condition
 - Input
 - List
