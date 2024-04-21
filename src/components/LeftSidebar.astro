@@ -34,7 +34,7 @@ const isCurrentPage = (item: typeof SIDEBAR[number]
 };
 
 const getLinkClasses = (link: typeof SIDEBAR[number]) => {
-	const baseClasses = "block py-2 px-6  my-1 transition-colors border-l hover:border-slate-400 text-slate-500 hover:text-slate-900"
+	const baseClasses = "block py-2 px-6 text-slate-500 dark:text-white my-1 transition-colors border-l hover:border-slate-400 hover:text-slate-900"
 	if (isCurrentPage(link)) {
 		return baseClasses + " border-slate-500 text-slate-900";
 	} else {
@@ -46,7 +46,7 @@ const getLinkClasses = (link: typeof SIDEBAR[number]) => {
 	<nav aria-labelledby="grid-left" class="w-64 px-4 pt-3 pb-6 h-full">
 		<ul>
 			{SIDEBAR.map(item => (item.header ? 
-				<h2 class="font-semibold text-slate-700">{item.text}</h2> : 
+				<h2 class="font-semibold text-slate-700 dark:text-white">{item.text}</h2> : 
 				<li class={getLinkClasses(item)}>
 					<a href={item.link}>{item.text}</a>
 				</li>
@@ -55,12 +55,4 @@ const getLinkClasses = (link: typeof SIDEBAR[number]) => {
 		</ul>
 	</nav>
 
-<script is:inline>
-	window.addEventListener('DOMContentLoaded', (event) => {
-		var target = document.querySelector('[aria-current="page"]');
-		if (target && target.offsetTop > window.innerHeight - 100) {
-			document.querySelector('.nav-groups').scrollTop = target.offsetTop;
-		}
-	});
-</script>
 
